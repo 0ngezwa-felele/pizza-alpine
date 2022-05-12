@@ -12,87 +12,84 @@
     <div class="container" x-data="{
         smallTotalQty:0,
         smallTotalPrice: 0.00,
-
         mediumTotalQty:0,
         mediumTotalPrice:0.00,
         show(){
             return this.cartTotalPrice() >0
         },
-
         largeTotalQty:0,
         largeTotalPrice:0.00,
-
         cartTotalPrice(){
             const { smallTotalPrice, mediumTotalPrice, largeTotalPrice} = this;
             return smallTotalPrice + mediumTotalPrice + largeTotalPrice
         }
     }">
-    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.0/dist/alpine.min.js" defer></script>
+        <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.0/dist/alpine.min.js" defer></script>
 
-    
 
-   
-    <div>
+
+
         <div>
-            <h1>Perfect Pizza</h1>
-        </div>
+            <div>
+                <h1>Perfect Pizza</h1>
+            </div>
 
-        <div class="cartTotal ">
-            <strong>Total price</strong>
-            <span x-text="cartTotalPrice()">0.00</span>
-            <a href="#">
+
+            
+
+            <div class="cart" x-show="show()">
+                <h3>Shopping Cart</h3>
                 <img src="shopping-cart.png" alt="">
-            </a>
-        </div>
+
+                <table>
+                    <tr>
+                        <th>Type</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Action</th>
+                    </tr>
+                    <tr>
+                        <td><strong>Small pizzas total:</strong></td>
+                        <td><span x-text="smallTotalPrice.toFixed(2)">0.00</span></td>
+                        <td><span x-text="smallTotalQty">0</span></td>
+                        <td>
+                            <button @click="smallTotalQty++,smallTotalPrice+=48.99">+</button>
+                            <button @click="smallTotalQty--,smallTotalPrice-=48.99">-</button>
+                        </td>
+
+                    </tr>
+
+                    <tr>
+                        <td><strong>Medium pizzas total:</strong></td>
+                        <td><span x-text="mediumTotalPrice.toFixed(2)">0.00</span></td>
+                        <td><span x-text="mediumTotalQty">0</span></td>
+                        <td>
+                            <button @click="mediumTotalQty++,mediumTotalPrice+=78.99">+</button>
+                            <button @click="mediumTotalQty--,mediumTotalPrice-=78.99">-</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Large pizza total:</strong></td>
+                        <td><span x-text="largeTotalPrice.toFixed(2)">0.00</span></td>
+                        <td><span x-text="largeTotalQty">0</span></td>
+                        <td>
+                            <button @click="largeTotalQty++,largeTotalPrice+=114.99">+</button>
+                            <button @click="largeTotalQty--,largeTotalPrice-=114.99">-</button>
+                        </td>
+                    </tr>
+                    
+            </div>
 
 
-        <div class="cart" x-show="show()" >
-            <h3>Shopping Cart</h3>
-            <img src="shopping-cart.png" alt="">
 
-            <table>
-                <tr>
-                    <th>Type</th>
-                    <th>Price</th>
-                    <th>Quantity</th>
-                    <th>Action</th>
-                </tr>
-                <tr>
-                    <td><strong>Small pizzas total:</strong></td>
-                    <td><span x-text="smallTotalPrice">0.00</span></td>
-                    <td><span x-text="smallTotalQty">0</span></td>
-                    <td><span class="add/remove">
-                        <button @click="smallTotalPrice++, ">+</button>
-                        <button @click="smallTotalPrice--">-</button>
-                    </span></td>
-
-                </tr>
-
-                <tr>
-                    <td><strong>Medium pizzas total:</strong></td>
-                    <td><span x-text="mediumTotalPrice">0.00</span></td>
-                    <td><span x-text="mediumTotalQty">0</span></td>
-                    <td><span class="add/remove">
-                        <button @click="mediumTotalQty++">+</button>
-                        <button @click="mediumTotalQty--">-</button>
-                    </span></td>
-                </tr>
-                <tr>
-                    <td><strong>Large pizza total:</strong></td>
-                    <td><span x-text="largeTotalPrice">0.00</span></td>
-                    <td><span x-text="largeTotalQty">0</span></td>
-                    <td><span class="add/remove">
-                            <button @click="largeTotalQty++">+</button>
-                            <button @click="largeTotalQty--">-</button>
-                        </div>
-                    </span></td>
-                </tr>
-                <!-- <tr>
-                    <td><strong>Total price</strong></td>
-                    <td><span class="totalPrice">0.00</span></td>
-                    <td><span class="add/remove"></span></td>
-                </tr> -->
+            <tr>
+                <td><strong>Total price</strong></td>
+                <td><span x-text="cartTotalPrice().toFixed(2)">0.00</span></td>
+                <td><span class="add/remove"></span></td>
+            </tr>
             </table>
+            <!-- <input type="">
+            <button @click="">Checkout</button> -->
         </div>
 
         <div class="specials">
@@ -153,7 +150,7 @@
             </div>
         </div>
     </div>
-</div>
+    </div>
 </body>
 <script src="pizza.js"></script>
 

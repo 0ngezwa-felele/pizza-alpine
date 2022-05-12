@@ -1,6 +1,10 @@
-// const cartElement = document.querySelector(".smallBtn");
-// const cartElement2 = document.getElementById("#hidden")
-
-// cartElement.addEventListener('click',function){
-//     cartElement2.style.display = 'block'
-// }
+// medium: [{
+//     mediumTotalQty:1,
+//     mediumTotalPrice:14.00,
+//     total(){
+//         return (mediumTotalPrice * mediumTotalQty)
+//     },
+//     add(){
+//         mediumTotalQty++
+//     }
+// }]
